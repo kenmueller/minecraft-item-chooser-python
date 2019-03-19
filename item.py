@@ -19,7 +19,7 @@ if unbreakable or not enchantments_is_empty:
 	if unbreakable:
 		attributes += 'unbreakable:1'
 	if not enchantments_is_empty:
-		attributes += ',' if unbreakable else '' + 'enchantments:[' + ','.join(['{id:' + enchantment[0] + ',lvl:' + enchantment[1] + '}' for enchantment in enchantments]) + ']'
+		attributes += (',' if unbreakable else '') + 'enchantments:[' + ','.join(['{id:' + enchantment[0] + ',lvl:' + enchantment[1] + '}' for enchantment in enchantments]) + ']'
 	attributes += '}'
 print(attributes + '\nCopied to clipboard')
 pyperclip.copy(attributes)
