@@ -14,5 +14,4 @@ pip3 install pyperclip
 python3 item.py
 ```
 
-1. Automatically copied to clipboard
-2. Press '/' to paste
+**Automatically copied to clipboard**
