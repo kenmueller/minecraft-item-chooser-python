@@ -1,4 +1,14 @@
-import pyperclip
+from tkinter import *
+window = Tk()
+window.geometry('500x300')
+window.title('Minecraft Item Chooser')
+instructions = StringVar(value='Item name')
+Label(window, textvariable=instructions).pack()
+instructions_input = StringVar()
+Entry(window, textvariable=instructions_input).pack()
+item = ''
+unbreakable = False
+enchantments = []
 def normalize(id):
 	return id.lower().replace(' ', '_')
 def add_enchantment():
@@ -7,6 +17,22 @@ def add_enchantment():
 	enchantments.append((normalize(enchantment_name), enchantment_level))
 	if input('More enchantments? (y/n): ') == 'y':
 		add_enchantment()
+def resetInput():
+	instructions_input.set('')
+def setCompletion(completion):
+	window.bind('<Return>', completion)
+def setItem(event):
+	item = instructions_input.get()
+setCompletion(setItem)
+def setUnbreakable(event):
+	unbreakable = instructions_input.get()
+instructions.set('Unbreakable? (y/n)')
+setCompletion(setUnbreakable)
+window.mainloop()
+
+
+
+
 item = input('Item: ')
 unbreakable = input('Unbreakable? (y/n): ') == 'y'
 enchantments = []
